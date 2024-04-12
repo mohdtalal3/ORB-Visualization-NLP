@@ -1,0 +1,1113 @@
+[
+    {
+        "sender": "kay",
+        "receiverList": [
+            {
+                "receiver": "suzanne",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.033,
+                        "neu": 0.848,
+                        "pos": 0.12 
+                    },
+                    "Emotions": {
+                        "fear": 0.0446326158828689,
+                        "anger": 0.029350246272181364,
+                        "anticip": 0.0,
+                        "trust": 0.15960461507320695,
+                        "surprise": 0.03761554550974968,
+                        "positive": 0.2496795088050739,
+                        "negative": 0.18450172053167802,
+                        "sadness": 0.04523986235746576,
+                        "disgust": 0.03518655961136226,
+                        "joy": 0.06419944673098982,
+                        "anticipation": 0.1499898792254234
+                    }
+                }
+            },
+            {
+                "receiver": "nmann",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.039,
+                        "neu": 0.834,
+                        "pos": 0.127 
+                    },
+                    "Emotions": {
+                        "fear": 0.04399177723789946,
+                        "anger": 0.028779667351896843,
+                        "anticip": 0.0,
+                        "trust": 0.1428518034012334,
+                        "surprise": 0.060811063352644364,
+                        "positive": 0.2516538964679499,
+                        "negative": 0.13911418426462344,
+                        "sadness": 0.05139226312838722,
+                        "disgust": 0.024855167258456365,
+                        "joy": 0.10484021678190993,
+                        "anticipation": 0.15170996075499907
+                    }
+                }
+            },
+            {
+                "receiver": "kathleen",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.019,
+                        "neu": 0.85,
+                        "pos": 0.132 
+                    },
+                    "Emotions": {
+                        "fear": 0.03954067412389907,
+                        "anger": 0.028169014084507043,
+                        "anticip": 0.0,
+                        "trust": 0.20089932736259244,
+                        "surprise": 0.028800772975584376,
+                        "positive": 0.30922739603850014,
+                        "negative": 0.14693968560704598,
+                        "sadness": 0.03638187966851239,
+                        "disgust": 0.02653387342524806,
+                        "joy": 0.05507451038685941,
+                        "anticipation": 0.1284328663272511
+                    }
+                }
+            },
+            {
+                "receiver": "carlos",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.025,
+                        "neu": 0.847,
+                        "pos": 0.128 
+                    },
+                    "Emotions": {
+                        "fear": 0.038869257950530034,
+                        "anger": 0.03162091147956873,
+                        "anticip": 0.0,
+                        "trust": 0.2028630968560297,
+                        "surprise": 0.040364229410165806,
+                        "positive": 0.2960043490078826,
+                        "negative": 0.13563468333786355,
+                        "sadness": 0.0380991211379904,
+                        "disgust": 0.021518528585666396,
+                        "joy": 0.06586934855486093,
+                        "anticipation": 0.12915647367944189
+                    }
+                }
+            },
+            {
+                "receiver": "ben",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.028,
+                        "neu": 0.852,
+                        "pos": 0.12 
+                    },
+                    "Emotions": {
+                        "fear": 0.046532414953467584,
+                        "anger": 0.02791944897208055,
+                        "anticip": 0.0,
+                        "trust": 0.178716020821284,
+                        "surprise": 0.03322992796677007,
+                        "positive": 0.28424207371575794,
+                        "negative": 0.1431726168568274,
+                        "sadness": 0.03896103896103896,
+                        "disgust": 0.025395656974604344,
+                        "joy": 0.057574004942425996,
+                        "anticipation": 0.1642567958357432
+                    }
+                }
+            },
+            {
+                "receiver": "sheila",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.033,
+                        "neu": 0.849,
+                        "pos": 0.118 
+                    },
+                    "Emotions": {
+                        "fear": 0.051731051998395935,
+                        "anger": 0.0313460767277102,
+                        "anticip": 0.0,
+                        "trust": 0.18453415318807645,
+                        "surprise": 0.031479748696698305,
+                        "positive": 0.27429488036358773,
+                        "negative": 0.15151717684801497,
+                        "sadness": 0.04230717818473466,
+                        "disgust": 0.033417992247025796,
+                        "joy": 0.0481887448202112,
+                        "anticipation": 0.1511829969255447
+                    }
+                }
+            },
+            {
+                "receiver": "ccampbell",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.022,
+                        "neu": 0.836,
+                        "pos": 0.142 
+                    },
+                    "Emotions": {
+                        "fear": 0.042212257100149475,
+                        "anger": 0.033961136023916295,
+                        "anticip": 0.0,
+                        "trust": 0.20418535127055307,
+                        "surprise": 0.016980568011958148,
+                        "positive": 0.29596412556053814,
+                        "negative": 0.14863976083707026,
+                        "sadness": 0.03360239162929746,
+                        "disgust": 0.032526158445440954,
+                        "joy": 0.04053811659192825,
+                        "anticipation": 0.15139013452914798
+                    }
+                }
+            },
+            {
+                "receiver": "reagan",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.022,
+                        "neu": 0.863,
+                        "pos": 0.115 
+                    },
+                    "Emotions": {
+                        "fear": 0.03913970160821546,
+                        "anger": 0.03487696182910289,
+                        "anticip": 0.0,
+                        "trust": 0.18039139701608214,
+                        "surprise": 0.036039527223406316,
+                        "positive": 0.26177097461732224,
+                        "negative": 0.17283472195310987,
+                        "sadness": 0.03507072272815346,
+                        "disgust": 0.016275915520248013,
+                        "joy": 0.06142220499903119,
+                        "anticipation": 0.16217787250532842
+                    }
+                }
+            },
+            {
+                "receiver": "pthompson",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.016,
+                        "neu": 0.853,
+                        "pos": 0.131 
+                    },
+                    "Emotions": {
+                        "fear": 0.04251851851851852,
+                        "anger": 0.019851851851851853,
+                        "anticip": 0.0,
+                        "trust": 0.2054814814814815,
+                        "surprise": 0.018814814814814815,
+                        "positive": 0.31096296296296294,
+                        "negative": 0.1831111111111111,
+                        "sadness": 0.030518518518518518,
+                        "disgust": 0.02666666666666667,
+                        "joy": 0.032,
+                        "anticipation": 0.13007407407407406
+                    }
+                }
+            },
+            {
+                "receiver": "jkeffer",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.023,
+                        "neu": 0.848,
+                        "pos": 0.13 
+                    },
+                    "Emotions": {
+                        "fear": 0.03527580840394259,
+                        "anger": 0.0282725229119834,
+                        "anticip": 0.0,
+                        "trust": 0.16946221684246932,
+                        "surprise": 0.0214421580494553,
+                        "positive": 0.27788345149576343,
+                        "negative": 0.1777624070551617,
+                        "sadness": 0.035362268718658135,
+                        "disgust": 0.05593982362095798,
+                        "joy": 0.04867715718485215,
+                        "anticipation": 0.149922185716756
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "sender": "vince",
+        "receiverList": [
+            {
+                "receiver": "vkaminski",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.038,
+                        "neu": 0.844,
+                        "pos": 0.118 
+                    },
+                    "Emotions": {
+                        "fear": 0.06039595257669061,
+                        "anger": 0.03257896560103823,
+                        "anticip": 0.0,
+                        "trust": 0.17432667897232262,
+                        "surprise": 0.03856633937758199,
+                        "positive": 0.3003355617945576,
+                        "negative": 0.13252364185370746,
+                        "sadness": 0.03869560046947629,
+                        "disgust": 0.023163587667457745,
+                        "joy": 0.06279503844224874,
+                        "anticipation": 0.13661863324491874
+                    }
+                }
+            },
+            {
+                "receiver": "shirley",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.021,
+                        "neu": 0.85,
+                        "pos": 0.129 
+                    },
+                    "Emotions": {
+                        "fear": 0.04257944049881631,
+                        "anger": 0.0204394651728852,
+                        "anticip": 0.0,
+                        "trust": 0.17228501883898503,
+                        "surprise": 0.038811643493047915,
+                        "positive": 0.3126271214697743,
+                        "negative": 0.14034210263078925,
+                        "sadness": 0.03571071321396419,
+                        "disgust": 0.025040845587009437,
+                        "joy": 0.07202160648194458,
+                        "anticipation": 0.14014204261278385
+                    }
+                }
+            },
+            {
+                "receiver": "stinson",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.019,
+                        "neu": 0.855,
+                        "pos": 0.126 
+                    },
+                    "Emotions": {
+                        "fear": 0.041468198374894925,
+                        "anger": 0.017652003362286353,
+                        "anticip": 0.0,
+                        "trust": 0.16577939665639302,
+                        "surprise": 0.0329690856449052,
+                        "positive": 0.3262351732511441,
+                        "negative": 0.14794059960773326,
+                        "sadness": 0.04548426263192304,
+                        "disgust": 0.023255813953488372,
+                        "joy": 0.06640515550574391,
+                        "anticipation": 0.13281031101148782
+                    }
+                }
+            },
+            {
+                "receiver": "steven",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.04,
+                        "neu": 0.836,
+                        "pos": 0.124 
+                    },
+                    "Emotions": {
+                        "fear": 0.06108735491753207,
+                        "anger": 0.020769700671960906,
+                        "anticip": 0.0,
+                        "trust": 0.16269598859702708,
+                        "surprise": 0.03746691101608634,
+                        "positive": 0.3038077784565262,
+                        "negative": 0.13398493178578702,
+                        "sadness": 0.042150274893097125,
+                        "disgust": 0.02748930971288943,
+                        "joy": 0.05986560781918143,
+                        "anticipation": 0.15068214212991243
+                    }
+                }
+            },
+            {
+                "receiver": "mike",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.034,
+                        "neu": 0.849,
+                        "pos": 0.117 
+                    },
+                    "Emotions": {
+                        "fear": 0.0509267278711242,
+                        "anger": 0.06080027715226052,
+                        "anticip": 0.0,
+                        "trust": 0.1616144119175472,
+                        "surprise": 0.028061666377966397,
+                        "positive": 0.2896241122466655,
+                        "negative": 0.16074831110341245,
+                        "sadness": 0.04087995842716092,
+                        "disgust": 0.029274207517755068,
+                        "joy": 0.04867486575437381,
+                        "anticipation": 0.12939546163173393
+                    }
+                }
+            },
+            {
+                "receiver": "molly",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.019,
+                        "neu": 0.851,
+                        "pos": 0.131 
+                    },
+                    "Emotions": {
+                        "fear": 0.055498721227621485,
+                        "anger": 0.015856777493606138,
+                        "anticip": 0.0,
+                        "trust": 0.15319693094629155,
+                        "surprise": 0.04552429667519182,
+                        "positive": 0.2925831202046036,
+                        "negative": 0.13989769820971867,
+                        "sadness": 0.04194373401534527,
+                        "disgust": 0.010997442455242966,
+                        "joy": 0.07263427109974424,
+                        "anticipation": 0.17186700767263427
+                    }
+                }
+            },
+            {
+                "receiver": "vasant",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.031,
+                        "neu": 0.848,
+                        "pos": 0.12 
+                    },
+                    "Emotions": {
+                        "fear": 0.061724993111049876,
+                        "anger": 0.02204464039680353,
+                        "anticip": 0.0,
+                        "trust": 0.1488013226784238,
+                        "surprise": 0.029209148525764672,
+                        "positive": 0.31055387158996967,
+                        "negative": 0.17222375310002755,
+                        "sadness": 0.05400936897216864,
+                        "disgust": 0.032791402590245246,
+                        "joy": 0.05400936897216864,
+                        "anticipation": 0.11463213006337834
+                    }
+                }
+            },
+            {
+                "receiver": "vince",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.044,
+                        "neu": 0.824,
+                        "pos": 0.132 
+                    },
+                    "Emotions": {
+                        "fear": 0.058823529411764705,
+                        "anger": 0.03070662227155013,
+                        "anticip": 0.0,
+                        "trust": 0.17721050684424713,
+                        "surprise": 0.03810580836108028,
+                        "positive": 0.290788013318535,
+                        "negative": 0.14206437291897892,
+                        "sadness": 0.032556418793932666,
+                        "disgust": 0.020347761746207917,
+                        "joy": 0.08435072142064373,
+                        "anticipation": 0.12504624491305957
+                    }
+                }
+            },
+            {
+                "receiver": "anita",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.017,
+                        "neu": 0.878,
+                        "pos": 0.105 
+                    },
+                    "Emotions": {
+                        "fear": 0.09256844850065189,
+                        "anger": 0.01303780964797914,
+                        "anticip": 0.0,
+                        "trust": 0.11603650586701435,
+                        "surprise": 0.0560625814863103,
+                        "positive": 0.25945241199478486,
+                        "negative": 0.196870925684485,
+                        "sadness": 0.04041720990873533,
+                        "disgust": 0.014341590612777053,
+                        "joy": 0.08213820078226858,
+                        "anticipation": 0.1290743155149935
+                    }
+                }
+            },
+            {
+                "receiver": "christie",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.006,
+                        "neu": 0.846,
+                        "pos": 0.147 
+                    },
+                    "Emotions": {
+                        "fear": 0.020749458036543822,
+                        "anger": 0.007432641684732115,
+                        "anticip": 0.0,
+                        "trust": 0.2000619386807061,
+                        "surprise": 0.04831217095075875,
+                        "positive": 0.3428305977082688,
+                        "negative": 0.09074016723443791,
+                        "sadness": 0.02013007122948281,
+                        "disgust": 0.018271910808299784,
+                        "joy": 0.06317745432022298,
+                        "anticipation": 0.1882935893465469
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "sender": "jeff",
+        "receiverList": [
+            {
+                "receiver": "nancy",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.028,
+                        "neu": 0.815,
+                        "pos": 0.156 
+                    },
+                    "Emotions": {
+                        "fear": 0.03909582030139323,
+                        "anger": 0.03938015353994882,
+                        "anticip": 0.0,
+                        "trust": 0.11657662780779073,
+                        "surprise": 0.06141597952800682,
+                        "positive": 0.24225191924936024,
+                        "negative": 0.15595678134773955,
+                        "sadness": 0.049900483366505544,
+                        "disgust": 0.024026158657947112,
+                        "joy": 0.106056297981234,
+                        "anticipation": 0.16533977822007392
+                    }
+                }
+            },
+            {
+                "receiver": "joseph",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.028,
+                        "neu": 0.851,
+                        "pos": 0.121 
+                    },
+                    "Emotions": {
+                        "fear": 0.07072205736894165,
+                        "anger": 0.032393669634025714,
+                        "anticip": 0.0,
+                        "trust": 0.15974282888229477,
+                        "surprise": 0.03981206726013848,
+                        "positive": 0.24530168150346193,
+                        "negative": 0.1827398615232443,
+                        "sadness": 0.05489614243323442,
+                        "disgust": 0.016567754698318497,
+                        "joy": 0.044015825914935705,
+                        "anticipation": 0.15380811078140455
+                    }
+                }
+            },
+            {
+                "receiver": "karen",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.048,
+                        "neu": 0.822,
+                        "pos": 0.13 
+                    },
+                    "Emotions": {
+                        "fear": 0.051251997868939796,
+                        "anger": 0.045711241342567925,
+                        "anticip": 0.0,
+                        "trust": 0.17229621736814066,
+                        "surprise": 0.036228023441662226,
+                        "positive": 0.257645178476292,
+                        "negative": 0.1469366009589771,
+                        "sadness": 0.043580181140117205,
+                        "disgust": 0.03303143313798615,
+                        "joy": 0.06648907831646245,
+                        "anticipation": 0.14683004794885454
+                    }
+                }
+            },
+            {
+                "receiver": "paul",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.038,
+                        "neu": 0.83,
+                        "pos": 0.133 
+                    },
+                    "Emotions": {
+                        "fear": 0.057975761546020306,
+                        "anger": 0.048258543509116715,
+                        "anticip": 0.0,
+                        "trust": 0.1906321650835244,
+                        "surprise": 0.03635768096953816,
+                        "positive": 0.2589802380172508,
+                        "negative": 0.1467409105797576,
+                        "sadness": 0.051970739163664154,
+                        "disgust": 0.024347636204825853,
+                        "joy": 0.06681952178185391,
+                        "anticipation": 0.11791680314444808
+                    }
+                }
+            },
+            {
+                "receiver": "susan",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.041,
+                        "neu": 0.857,
+                        "pos": 0.102 
+                    },
+                    "Emotions": {
+                        "fear": 0.05383800443031879,
+                        "anger": 0.06115766156216893,
+                        "anticip": 0.0,
+                        "trust": 0.16180294712510834,
+                        "surprise": 0.03303476837137629,
+                        "positive": 0.23721467783877492,
+                        "negative": 0.1564095155542714,
+                        "sadness": 0.062217085620726184,
+                        "disgust": 0.020803236058942503,
+                        "joy": 0.052585957815660216,
+                        "anticipation": 0.1609361456226524
+                    }
+                }
+            },
+            {
+                "receiver": "james",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.044,
+                        "neu": 0.844,
+                        "pos": 0.111 
+                    },
+                    "Emotions": {
+                        "fear": 0.05834233678036734,
+                        "anger": 0.05996295724648865,
+                        "anticip": 0.0,
+                        "trust": 0.16221639141842878,
+                        "surprise": 0.038586201574317025,
+                        "positive": 0.25736996450069455,
+                        "negative": 0.15557956474764625,
+                        "sadness": 0.055795647476462415,
+                        "disgust": 0.029865720018521377,
+                        "joy": 0.054483716622935635,
+                        "anticipation": 0.12779749961413797
+                    }
+                }
+            },
+            {
+                "receiver": "cameron",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.027,
+                        "neu": 0.82,
+                        "pos": 0.154 
+                    },
+                    "Emotions": {
+                        "fear": 0.028056112224448898,
+                        "anger": 0.02374749498997996,
+                        "anticip": 0.0,
+                        "trust": 0.18807615230460922,
+                        "surprise": 0.04849699398797595,
+                        "positive": 0.28196392785571145,
+                        "negative": 0.11292585170340681,
+                        "sadness": 0.03567134268537074,
+                        "disgust": 0.0218436873747495,
+                        "joy": 0.10681362725450902,
+                        "anticipation": 0.15240480961923847
+                    }
+                }
+            },
+            {
+                "receiver": "richard",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.048,
+                        "neu": 0.833,
+                        "pos": 0.118 
+                    },
+                    "Emotions": {
+                        "fear": 0.061940565699964194,
+                        "anger": 0.04976727533118511,
+                        "anticip": 0.0,
+                        "trust": 0.17293233082706766,
+                        "surprise": 0.046007876834944506,
+                        "positive": 0.24794128177586824,
+                        "negative": 0.15073397780164696,
+                        "sadness": 0.055495882563551736,
+                        "disgust": 0.030970282849982097,
+                        "joy": 0.05674901539563194,
+                        "anticipation": 0.12746151092015753
+                    }
+                }
+            },
+            {
+                "receiver": "alan",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.048,
+                        "neu": 0.861,
+                        "pos": 0.091 
+                    },
+                    "Emotions": {
+                        "fear": 0.07019829797630196,
+                        "anger": 0.04808827720998412,
+                        "anticip": 0.0,
+                        "trust": 0.17301193045319435,
+                        "surprise": 0.036361415367075205,
+                        "positive": 0.24634553524166294,
+                        "negative": 0.1193859684840588,
+                        "sadness": 0.057819943808787,
+                        "disgust": 0.03888594812492365,
+                        "joy": 0.04890264261574168,
+                        "anticipation": 0.1610000407182703
+                    }
+                }
+            },
+            {
+                "receiver": "skean",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.04,
+                        "neu": 0.838,
+                        "pos": 0.122 
+                    },
+                    "Emotions": {
+                        "fear": 0.07601995890813032,
+                        "anger": 0.03933078955092457,
+                        "anticip": 0.0,
+                        "trust": 0.15380099794540653,
+                        "surprise": 0.035808629292632815,
+                        "positive": 0.24977986498385676,
+                        "negative": 0.15086586439683006,
+                        "sadness": 0.07161725858526563,
+                        "disgust": 0.028470795421191665,
+                        "joy": 0.05107132374523041,
+                        "anticipation": 0.14323451717053126
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "sender": "pete",
+        "receiverList": [
+            {
+                "receiver": "pete",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.107,
+                        "neu": 0.859,
+                        "pos": 0.034,
+                        "compound": -1.0
+                    },
+                    "Emotions": {
+                        "fear": 0.11734924948240166,
+                        "anger": 0.013074749827467218,
+                        "anticip": 0.0,
+                        "trust": 0.1466906055900621,
+                        "surprise": 0.020213293650793652,
+                        "positive": 0.08549538474810214,
+                        "negative": 0.2447808833678399,
+                        "sadness": 0.17176716701173222,
+                        "disgust": 0.012977700138026224,
+                        "joy": 0.0699782177363699,
+                        "anticipation": 0.11767274844720498
+                    }
+                }
+            },
+            {
+                "receiver": "portland",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.069,
+                        "neu": 0.825,
+                        "pos": 0.106,
+                        "compound": 0.9304
+                    },
+                    "Emotions": {
+                        "fear": 0.09523809523809523,
+                        "anger": 0.023809523809523808,
+                        "anticip": 0.0,
+                        "trust": 0.09523809523809523,
+                        "surprise": 0.047619047619047616,
+                        "positive": 0.2619047619047619,
+                        "negative": 0.14285714285714285,
+                        "sadness": 0.07142857142857142,
+                        "disgust": 0.047619047619047616,
+                        "joy": 0.07142857142857142,
+                        "anticipation": 0.14285714285714285
+                    }
+                }
+            },
+            {
+                "receiver": "bill",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.033,
+                        "neu": 0.823,
+                        "pos": 0.144,
+                        "compound": 0.9964
+                    },
+                    "Emotions": {
+                        "fear": 0.2571428571428571,
+                        "anger": 0.02857142857142857,
+                        "anticip": 0.0,
+                        "trust": 0.0,
+                        "surprise": 0.0,
+                        "positive": 0.11428571428571428,
+                        "negative": 0.2571428571428571,
+                        "sadness": 0.02857142857142857,
+                        "disgust": 0.2,
+                        "joy": 0.02857142857142857,
+                        "anticipation": 0.08571428571428572
+                    }
+                }
+            },
+            {
+                "receiver": "monika",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.026,
+                        "neu": 0.899,
+                        "pos": 0.076,
+                        "compound": 0.8176
+                    },
+                    "Emotions": {
+                        "fear": 0.07142857142857142,
+                        "anger": 0.07142857142857142,
+                        "anticip": 0.0,
+                        "trust": 0.07142857142857142,
+                        "surprise": 0.0,
+                        "positive": 0.07142857142857142,
+                        "negative": 0.2857142857142857,
+                        "sadness": 0.14285714285714285,
+                        "disgust": 0.0,
+                        "joy": 0.07142857142857142,
+                        "anticipation": 0.21428571428571427
+                    }
+                }
+            },
+            {
+                "receiver": "phillip",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.0,
+                        "neu": 0.853,
+                        "pos": 0.147,
+                        "compound": 0.7968
+                    },
+                    "Emotions": {
+                        "fear": 0.0,
+                        "anger": 0.0,
+                        "anticip": 0.0,
+                        "trust": 0.0,
+                        "surprise": 0.0,
+                        "positive": 0.4,
+                        "negative": 0.0,
+                        "sadness": 0.0,
+                        "disgust": 0.0,
+                        "joy": 0.2,
+                        "anticipation": 0.4
+                    }
+                }
+            },
+            {
+                "receiver": "holden",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.0,
+                        "neu": 0.839,
+                        "pos": 0.161,
+                        "compound": 0.5859
+                    },
+                    "Emotions": {
+                        "fear": 0.2,
+                        "anger": 0.2,
+                        "anticip": 0.0,
+                        "trust": 0.0,
+                        "surprise": 0.0,
+                        "positive": 0.0,
+                        "negative": 0.4,
+                        "sadness": 0.2,
+                        "disgust": 0.0,
+                        "joy": 0.0
+                    }
+                }
+            },
+            {
+                "receiver": "bill",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.018,
+                        "neu": 0.82,
+                        "pos": 0.163,
+                        "compound": 0.8625
+                    },
+                    "Emotions": {
+                        "fear": 0.0,
+                        "anger": 0.0,
+                        "anticip": 0.0,
+                        "trust": 0.0,
+                        "surprise": 0.0,
+                        "positive": 0.2857142857142857,
+                        "negative": 0.2857142857142857,
+                        "sadness": 0.0,
+                        "disgust": 0.0,
+                        "joy": 0.0,
+                        "anticipation": 0.42857142857142855
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "sender": "sara",
+        "receiverList": [
+            {
+                "receiver": "kaye",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.023,
+                        "neu": 0.835,
+                        "pos": 0.142 
+                    },
+                    "Emotions": {
+                        "fear": 0.04603056280283265,
+                        "anger": 0.03559448378680581,
+                        "anticip": 0.0,
+                        "trust": 0.22586656727543794,
+                        "surprise": 0.0126723816623183,
+                        "positive": 0.3257547521431234,
+                        "negative": 0.11069698099142751,
+                        "sadness": 0.027767424524785686,
+                        "disgust": 0.014908684308609765,
+                        "joy": 0.07193440178904212,
+                        "anticipation": 0.12877376071561686
+                    }
+                }
+            },
+            {
+                "receiver": "mark",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.026,
+                        "neu": 0.851,
+                        "pos": 0.123 
+                    },
+                    "Emotions": {
+                        "fear": 0.04931056524518309,
+                        "anger": 0.03396950050223724,
+                        "anticip": 0.0,
+                        "trust": 0.23249018354488174,
+                        "surprise": 0.02410738745320062,
+                        "positive": 0.29440233768605606,
+                        "negative": 0.1399872157793809,
+                        "sadness": 0.04994977627613917,
+                        "disgust": 0.015706328189206465,
+                        "joy": 0.045931878367272395,
+                        "anticipation": 0.11414482695644233
+                    }
+                }
+            },
+            {
+                "receiver": "tana",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.013,
+                        "neu": 0.855,
+                        "pos": 0.131 
+                    },
+                    "Emotions": {
+                        "fear": 0.030454545454545453,
+                        "anger": 0.024545454545454544,
+                        "anticip": 0.0,
+                        "trust": 0.2484090909090909,
+                        "surprise": 0.0175,
+                        "positive": 0.325,
+                        "negative": 0.15386363636363637,
+                        "sadness": 0.029545454545454545,
+                        "disgust": 0.021363636363636362,
+                        "joy": 0.06431818181818182,
+                        "anticipation": 0.085
+                    }
+                }
+            },
+            {
+                "receiver": "susan",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.014,
+                        "neu": 0.858,
+                        "pos": 0.128 
+                    },
+                    "Emotions": {
+                        "fear": 0.04185540858851241,
+                        "anger": 0.028990759195506432,
+                        "anticip": 0.0,
+                        "trust": 0.2505888747961587,
+                        "surprise": 0.023736184091320892,
+                        "positive": 0.31708642870085163,
+                        "negative": 0.1360753759739083,
+                        "sadness": 0.034245334299691975,
+                        "disgust": 0.017938032252219606,
+                        "joy": 0.04239898532342816,
+                        "anticipation": 0.10708461677840188
+                    }
+                }
+            },
+            {
+                "receiver": "stephanie",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.015,
+                        "neu": 0.852,
+                        "pos": 0.133 
+                    },
+                    "Emotions": {
+                        "fear": 0.04781216648879402,
+                        "anger": 0.029028815368196372,
+                        "anticip": 0.0,
+                        "trust": 0.25144076840981855,
+                        "surprise": 0.009178228388473852,
+                        "positive": 0.31910352187833513,
+                        "negative": 0.14215581643543224,
+                        "sadness": 0.042689434364994665,
+                        "disgust": 0.0192102454642476,
+                        "joy": 0.04375667022411953,
+                        "anticipation": 0.09562433297758804
+                    }
+                }
+            },
+            {
+                "receiver": "brent",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.023,
+                        "neu": 0.86,
+                        "pos": 0.117 
+                    },
+                    "Emotions": {
+                        "fear": 0.03917910447761194,
+                        "anger": 0.018034825870646767,
+                        "anticip": 0.0,
+                        "trust": 0.20169983416252074,
+                        "surprise": 0.029643449419568823,
+                        "positive": 0.3055555555555556,
+                        "negative": 0.1556799336650083,
+                        "sadness": 0.04249585406301824,
+                        "disgust": 0.012023217247097845,
+                        "joy": 0.059286898839137646,
+                        "anticipation": 0.13640132669983415
+                    }
+                }
+            },
+            {
+                "receiver": "marie",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.024,
+                        "neu": 0.854,
+                        "pos": 0.122 
+                    },
+                    "Emotions": {
+                        "fear": 0.04377923292797006,
+                        "anger": 0.03292797006548176,
+                        "anticip": 0.0,
+                        "trust": 0.2641721234798877,
+                        "surprise": 0.021702525724976614,
+                        "positive": 0.282132834424696,
+                        "negative": 0.14144059869036482,
+                        "sadness": 0.03442469597754911,
+                        "disgust": 0.017212347988774555,
+                        "joy": 0.05070159027128157,
+                        "anticipation": 0.11150608044901777
+                    }
+                }
+            },
+            {
+                "receiver": "tanya",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.017,
+                        "neu": 0.837,
+                        "pos": 0.146 
+                    },
+                    "Emotions": {
+                        "fear": 0.056333692473449284,
+                        "anger": 0.03940280129290442,
+                        "anticip": 0.0,
+                        "trust": 0.25242419578266895,
+                        "surprise": 0.019855317839002618,
+                        "positive": 0.2892104048022164,
+                        "negative": 0.13560104663690933,
+                        "sadness": 0.048483915653378486,
+                        "disgust": 0.024934585193166076,
+                        "joy": 0.04355856549176543,
+                        "anticipation": 0.09019547483453902
+                    }
+                }
+            },
+            {
+                "receiver": "sshackl",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.02,
+                        "neu": 0.856,
+                        "pos": 0.125 
+                    },
+                    "Emotions": {
+                        "fear": 0.03811708977869884,
+                        "anger": 0.02501665309747613,
+                        "anticip": 0.0,
+                        "trust": 0.22825845607282955,
+                        "surprise": 0.037821034712456514,
+                        "positive": 0.3115979572200429,
+                        "negative": 0.0994004884908593,
+                        "sadness": 0.03515653911627563,
+                        "disgust": 0.011916216416253423,
+                        "joy": 0.07978684035230553,
+                        "anticipation": 0.13292872474280215
+                    }
+                }
+            },
+            {
+                "receiver": "carol",
+                "sentimentEmotion": {
+                    "SentimentScores": {
+                        "neg": 0.024,
+                        "neu": 0.864,
+                        "pos": 0.113 
+                    },
+                    "Emotions": {
+                        "fear": 0.05151864667435602,
+                        "anger": 0.030757400999615533,
+                        "anticip": 0.0,
+                        "trust": 0.23414071510957324,
+                        "surprise": 0.027297193387158785,
+                        "positive": 0.27950788158400613,
+                        "negative": 0.11995386389850057,
+                        "sadness": 0.0461361014994233,
+                        "disgust": 0.015763168012302962,
+                        "joy": 0.09111880046136102,
+                        "anticipation": 0.10380622837370242
+                    }
+                }
+            }
+        ]
+    }]

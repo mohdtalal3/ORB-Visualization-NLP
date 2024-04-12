@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3.js Visualization</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        /* Add CSS styling here */
+        /* You can customize the styling for your visualization */
+        circle {
+            stroke: #fff;
+            stroke-width: 2px;
+            /* fill: #007bff; */
+            transition: fill 0.3s ease; /* Add a smooth color transition on hover */
+        }
+        circle:hover {
+            fill: #ff5722; /* Change color on hover */
+        }
+        line {
+            stroke: #999;
+            stroke-opacity: 0.6;
+            stroke-width: 2px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7; /* Set a light background color */
+        }
+    
+        /* Navigation Bar */
+        .navbar {
+            background-color: #007bff;
+            border-radius: 20px;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+        }
+    
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease; /* Add a smooth color transition on hover */
+        }
+        .navbar a:hover {
+            color: #ff5722; /* Change link color on hover */
+        }
+        .main-heading {
+            text-align: center;
+            width: 100%;
+            margin: 20px 0;
+            color: #333; /* Change text color */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Add a text shadow */
+        }
+    </style>
+    
+</head>
+<body>
+
+
+    <div class="navbar">
+        <div class="main-heading">
+            <h1>Sentiment Dashboard</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#">Dashboard</a>
+            <a href="#">Analysis</a>
+            <a href="#">Settings</a>
+        </div>
+    </div>
+    <svg width="2000" height="2000"></svg>
+    
+    <script>
+        // Your D3.js code here
+        var data = {{ data | tojson | safe }};
+
+        // Sample data with multiple senders and receiver lists
+        // const data = [
+        //     {
+        //         sender: 'kay.mann@enron.com',
+        //         receiverList: [
+        //             {
+        //                 receiver: 'suzanne.adams@enron.com',
+        //                 sentimentEmotion: {
+        //                     SentimentScores: {
+        //                         neg: 0.033,
+        //                         neu: 0.848,
+        //                         pos: 0.12
+        //                     },
+        //                     Emotions: {
+        //                         fear: 0.0446326158828689,
+        //                         anger: 0.029350246272181364,
+        //                         anticip: 0.0,
+        //                         trust: 0.15960461507320695,
+        //                         surprise: 0.03761554550974968,
+        //                         positive: 0.2496795088050739,
+        //                         negative: 0.18450172053167802,
+        //                         sadness: 0.04523986235746576,
+        //                         disgust: 0.03518655961136226,
+        //                         joy: 0.06419944673098982,
+        //                         anticipation: 0.1499898792254234
+        //                     }
+        //                 }
+        //             },
+        //             'nmann@erac.com',
+        //             'kathleen.carnahan@enron.com',
+        //             'carlos.sole@enron.com',
+        //             'ben.jacoby@enron.com',
+        //             'sheila.tweed@enron.com',
+        //             'ccampbell@kslaw.com',
+        //             'reagan.rorschach@enron.com',
+        //             'pthompson@akllp.com',
+        //             'jkeffer@kslaw.com',
+        //         ],
+        //     },
+        //     {
+        //         sender: 'another.sender@enron.com',
+        //         receiverList: [
+        //             'recipient1@enron.com',
+        //             'recipient2@enron.com',
+        //             'recipient3@enron.com',
+        //             // Add more recipients as needed
+        //         ],
+        //     },
+        //     // Add more sender-receiver data objects as needed
+        // ];
+
+        // Convert data into nodes and links format
+        const nodes = [];
+        const links = [];
+        data.forEach((entry, senderIndex) => {
+            const senderId = `Sender${senderIndex + 1}`;
+            nodes.push({
+                id: senderId,
+                group: 1,
+                radius: 40,
+                email: entry.sender,
+                
+            });
+
+            // Connect sender nodes to the central node
+            links.push({ source: 'Emails', target: senderId, value: 1 });
+
+            // Your existing code for other nodes and links here...
+    entry.receiverList.forEach((receiver, receiverIndex) => {
+        if (typeof receiver === 'object') {
+            // Receiver has Sentiment and Emotion data
+            const receiverId = `Receiver${senderIndex + 1}-${receiverIndex + 1}`;
+            nodes.push({
+                id: receiverId,
+                group: 2,
+                hidden: true,
+                radius: 50,
+                email: receiver.receiver,
+                x: 600,y: 800,
+                fixed:true // Store receiver's email in the 'email' property
+            });
+
+            const sentimentId = `Sentiment${senderIndex + 1}-${receiverIndex + 1}`;
+            nodes.push({
+                id: sentimentId,
+                group: 3,
+                hidden: true,
+                sentimentData: receiver.sentimentEmotion.SentimentScores,
+                radius: 80,
+                email: receiver.receiver,
+                x: 400,y: 600,
+                fixed:true // Store receiver's email in the 'email' property
+            });
+
+            const emotionId = `Emotion${senderIndex + 1}-${receiverIndex + 1}`;
+            nodes.push({
+                id: emotionId,
+                group: 3,
+                hidden: true,
+                emotionData: receiver.sentimentEmotion.Emotions,
+                radius: 60,
+                email: receiver.receiver,
+                x: 400,y: 600,
+                 fixed:true // Store receiver's email in the 'email' property
+            });
+
+            links.push({ source: senderId, target: receiverId, value: 1, hidden: true });
+            links.push({ source: receiverId, target: sentimentId, value: 1, hidden: true });
+            links.push({ source: receiverId, target: emotionId, value: 1, hidden: true });
+        } else {
+            const receiverId = `Receiver${senderIndex + 1}-${receiverIndex + 1}`;
+            nodes.push({
+                id: receiverId,
+                group: 2,
+                hidden: true,
+                radius: 60,
+                email: receiver,
+                x: 400,y: 600,
+                fixed:true // Store receiver's email in the 'email' property
+            });
+
+            links.push({ source: senderId, target: receiverId, value: 1, hidden: true });
+        }
+    });
+});
+
+
+        data.forEach((entry, senderIndex) => {
+            entry.receiverList.forEach((receiver, receiverIndex) => {
+                if (typeof receiver === 'object') {
+                    const sentimentId = `Sentiment${senderIndex + 1}-${receiverIndex + 1}`;
+                    const pieChartId = `PieChart${senderIndex + 1}-${receiverIndex + 1}`;
+                    nodes.push({ id: pieChartId, group: 4, linkedTo: sentimentId, hidden: true, sentimentData: receiver.sentimentEmotion.SentimentScores, radius: 50,x: 200,y: 300, fixed:true }); // Larger radius for pie chart
+                    links.push({ source: sentimentId, target: pieChartId, value: 1, hidden: true, fixed:true });
+                }
+            });
+        });
+
+        data.forEach((entry, senderIndex) => {
+            entry.receiverList.forEach((receiver, receiverIndex) => {
+                if (typeof receiver === 'object') {
+                    const emotionId = `Emotion${senderIndex + 1}-${receiverIndex + 1}`;
+                    const pieChartId = `PieChart${senderIndex + 1}-${receiverIndex + 1}`;
+                    nodes.push({ id: pieChartId, group: 5, linkedTo: emotionId,   hidden: true, emotionData: receiver.sentimentEmotion.Emotions, radius: 50, x: 500,y: 800,fixed:true }); // Larger radius for pie chart
+                    links.push({ source: emotionId, target: pieChartId, value: 1, hidden: true, fixed:true });
+                }
+            });
+        });
+
+        
+        // Create the SVG container
+        const svg = d3.select('svg');
+        nodes.push({
+            id: 'Emails',
+            group: 0, // Central node group
+            radius: 40, // Adjust the radius as needed
+            x: 400, // X-coordinate to place in the center
+            y: 300, // Y-coordinate to place in the center
+            fixed: true // Keep the central node fixed
+        });
+
+       
+        const simulation = d3
+            .forceSimulation()
+            .force('link', d3.forceLink().id((d) => d.id).distance((d) => d.source.radius + d.target.radius + 40)) // Adjust link distance
+            .force('charge', d3.forceManyBody().strength(-100))
+            .force('center', d3.forceCenter(svg.attr('width') / 2, svg.attr('height') / 2));
+            
+
+        // Create links and nodes
+        const link = svg
+            .selectAll('line')
+            .data(links)
+            .enter()
+            .append('line')
+            .attr('stroke', '#999')
+            .attr('stroke-opacity', 0.6)
+            .attr('stroke-width', (d) => Math.sqrt(d.value))
+            .style('display', (d) => (d.hidden ? 'none' : 'block')); // Initially hidden
+
+        const node = svg
+            .selectAll('circle')
+            .data(nodes)
+            .enter()
+            .append('circle')
+            .attr('r', (d) => d.radius) // Use radius from data
+            .attr('fill', (d) => {
+                if (d.group === 1) return 'LightSkyBlue';
+                else if (d.group === 2) return 'ForestGreen';
+                else if (d.group === 3) return 'Goldenrod';
+                else return 'DarkBlue';
+            })
+            .on('click', clickNode)
+            .style('display', (d) => (d.hidden ? 'none' : 'block')); // Initially hidden
+          
+
+// ...
+// Create node text labels
+console.log(nodes)
+const nodeText = svg
+    .selectAll('text')
+    .data(nodes)
+    .enter()
+    .append('text')
+    .attr('text-anchor', 'middle')
+    .attr('dy', '0.35em')
+    .attr('font-size', '18px')
+    .attr('fill', 'DarkSlateGray')
+    .text((d) => {
+        if (d.group === 1) {
+            // Customize the text for Sender nodes
+            return `${d.email}`;
+        } else if (d.group === 2) {
+            // Customize the text for Receiver nodes
+            return `${d.email}`;
+        } else if (d.group === 3) {
+            // Customize the text for Sentiment/Emotion nodes
+            return `${d.id}`;
+        } else {
+            // Customize for other node types if needed
+            return d.id;
+        }
+    })
+    .style('display', (d) => (d.hidden ? 'none' : 'block')); // Initially hidden
+
+
+// Position the text labels at the center of each node
+nodeText.attr('x', (d) => d.x).attr('y', (d) => d.y);
+
+        node.call(d3.drag().on('start', dragstarted).on('drag', dragged).on('end', dragended));
+
+        // Define drag functions
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        // Define tick function
+        function ticked() {
+            link
+                .attr('x1', (d) => Math.max(0, Math.min(svg.attr('width'), d.source.x)))
+                .attr('y1', (d) => Math.max(0, Math.min(svg.attr('height'), d.source.y)))
+                .attr('x2', (d) => Math.max(0, Math.min(svg.attr('width'), d.target.x)))
+                .attr('y2', (d) => Math.max(0, Math.min(svg.attr('height'), d.target.y)));
+
+            node
+                .attr('cx', (d) => Math.max(d.radius, Math.min(svg.attr('width') - d.radius, d.x)))
+                .attr('cy', (d) => Math.max(d.radius, Math.min(svg.attr('height') - d.radius, d.y)));
+
+                nodeText
+    .attr('x', (d) => Math.max(d.radius, Math.min(svg.attr('width') - d.radius, d.x)))
+    .attr('y', (d) => Math.max(d.radius, Math.min(svg.attr('height') - d.radius, d.y)));
+
+                svg.selectAll('.pie')
+        .attr('transform', (d) => `translate(${d.x},${d.y})`);
+                
+        }
+
+        // Update the simulation
+        simulation.nodes(nodes).on('tick', ticked);
+        simulation.force('link').links(links);
+
+        // Function to handle click on nodes
+        function clickNode(event, d) {
+
+            
+    if (d.group === 1) {
+        // Clicked on a sender node
+        const senderId = d.id;
+        const relatedReceiverNodes = nodes.filter((node) => {
+            return (
+                node.group === 2 &&
+                (links.some((link) => link.source.id === senderId && link.target.id === node.id) ||
+                    links.some((link) => link.target.id === senderId && link.source.id === node.id))
+            );
+        });
+
+        // Toggle visibility of receiver nodes and links
+        relatedReceiverNodes.forEach((node) => {
+            node.hidden = !node.hidden;
+        });
+
+        links.forEach((link) => {
+            if (relatedReceiverNodes.some((node) => node.id === link.target.id)) {
+                link.hidden = !link.hidden;
+            }
+        });
+    } else if (d.group === 2) {
+        // Clicked on a receiver node
+        const receiverId = d.id;
+        const relatedSentimentEmotionNodes = nodes.filter((node) => {
+            return (
+                node.group === 3 &&
+                (links.some((link) => link.source.id === receiverId && link.target.id === node.id) ||
+                    links.some((link) => link.target.id === receiverId && link.source.id === node.id))
+            );
+        });
+
+        // Toggle visibility of sentiment and emotion nodes and links
+        relatedSentimentEmotionNodes.forEach((node) => {
+            node.hidden = !node.hidden;
+        });
+
+        links.forEach((link) => {
+            if (relatedSentimentEmotionNodes.some((node) => node.id === link.target.id)) {
+                link.hidden = !link.hidden;
+            }
+        });
+    }
+    else if (d.group === 3) {
+        // Clicked on Sentiment or Emotion node
+
+        const sentimentId = d.id;
+        const emotionId = d.id;
+
+        const pieChartNode1 = nodes.find((node) => node.group === 4 && node.linkedTo === sentimentId);
+        const pieChartNode2 = nodes.find((node) => node.group === 5 && node.linkedTo === emotionId);
+
+        if (pieChartNode1 || pieChartNode2) {
+            // Toggle visibility of pie chart nodes
+            if (pieChartNode1) pieChartNode1.hidden = !pieChartNode1.hidden;
+            if (pieChartNode2) pieChartNode2.hidden = !pieChartNode2.hidden;
+
+            // Toggle visibility of links related to pie chart nodes
+            links.forEach((link) => {
+                if (link.source.id === sentimentId || link.source.id === emotionId) {
+                    link.hidden = !link.hidden;
+                }
+            });
+
+            // Restart the simulation
+           // simulation.alpha(0.3).restart();
+
+            // Update the display of pie chart nodes and links
+            svg.selectAll('.pie').style('display', (node) => (node.hidden ? 'none' : 'block'));
+            link.style('display', (link) => (link.hidden ? 'none' : 'block'));
+        }
+    }
+
+    // Update the simulation to reflect changes
+    node.style('display', (node) => (node.hidden ? 'none' : 'block'));
+        nodeText.style('display', (node) => (node.hidden ? 'none' : 'block')); // Show/hide text labels
+        link.style('display', (link) => (link.hidden ? 'none' : 'block'));
+        // simulation.nodes(nodes);
+        // simulation.force('link').links(links);
+        // simulation.alpha(0.3).restart();
+}
+
+function createPieChart(node,data) {
+    // Set the initial hidden property to true
+    node.hidden = true;
+
+    const pie = d3.pie().value((d) => d.value);
+
+    // Assuming node.sentimentData is an object with key-value pairs
+    const pieData = pie(Object.entries(data).map(([emotion, value]) => ({ emotion, value })));
+
+    const arc = d3.arc().innerRadius(0).outerRadius(node.radius+100);
+
+    const g = svg
+        .append('g')
+        .attr('class', 'pie')
+        .data([node])
+        .attr('transform', 'translate(' + node.x + ',' + node.y + ')');
+
+
+    // Create a color scale for the pie segments
+    const colorScale = d3.scaleOrdinal().range(d3.schemeCategory10);
+
+    const paths = g.selectAll('path')
+        .data(pieData)
+        .enter()
+        .append('path')
+        .attr('d', arc)
+        .attr('fill', (d) => colorScale(d.data.emotion))
+        .on('mouseover', function (event, d) {
+            // Zoom in effect on hover
+            d3.select(this)
+                .transition()
+                .duration(200)
+                .attr('d', d3.arc().innerRadius(0).outerRadius((node.radius+100) * 1.1));
+
+            // Show a tooltip with information when hovering over a segment
+            const percentage = ((d.data.value / d3.sum(pieData, (d) => d.data.value)) * 100).toFixed(2);
+            const tooltipText = `${d.data.emotion}: ${percentage}%`;
+            // Add tooltip HTML element and position it
+            d3.select('#tooltip')
+                .style('display', 'block')
+                .html(tooltipText)
+                .style('left', (event.pageX + 10) + 'px')
+                .style('top', (event.pageY - 10) + 'px');
+        })
+        .on('mouseout', function () {
+            // Restore the original size and hide the tooltip on mouseout
+            d3.select(this)
+                .transition()
+                .duration(200)
+                .attr('d', arc);
+
+            d3.select('#tooltip').style('display', 'none');
+        });
+
+    // Add percentage labels
+    g.selectAll('text')
+        .data(pieData)
+        .enter()
+        .append('text')
+        .attr('transform', (d) => {
+            const pos = arc.centroid(d);
+            return `translate(${pos[0]}, ${pos[1]})`;
+        })
+        .attr('dy', '0.35em')
+        .text((d) => `${((d.data.value / d3.sum(pieData, (d) => d.data.value)) * 100).toFixed(2)}%`)
+        .attr('text-anchor', 'middle')
+        .style('font-size', '12px')
+        .style('fill', 'white');
+
+    // Add a title (optional)
+    g.append('title')
+        .text('Sentiment Distribution');
+
+    // Initially hide the pie chart
+    g.style('display', 'none');
+
+    // Add a tooltip container to the body
+    d3.select('body')
+        .append('div')
+        .attr('id', 'tooltip')
+        .style('position', 'absolute')
+        .style('display', 'none')
+        .style('background-color', 'white')
+        .style('border', '1px solid #ccc')
+        .style('padding', '5px');
+}
+
+
+
+
+
+        // Create pie charts for each pie chart node
+        nodes.forEach(node => {
+    if (node.group === 4 || node.group === 5) {
+        createPieChart(node, node.group === 4 ? node.sentimentData : node.emotionData);
+    }
+});
+
+
+
+
+simulation.nodes(nodes).on('tick', ticked);
+simulation.force('link').links(links);
+simulation.alpha(0.3).restart();
+    </script>
+</body>
+</html>

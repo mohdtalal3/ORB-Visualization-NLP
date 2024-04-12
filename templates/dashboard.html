@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Emotion Analysis</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #007bff;
+            border-radius: 20px;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Input Styles */
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        /* Button Styles */
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Container Styles */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* CSS for the main heading */
+        .main-heading {
+            text-align: center;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        /* CSS for the heading of the pie chart */
+        .chart-heading {
+            text-align: center;
+            flex: 1;
+        }
+
+        /* CSS for the heading of the word cloud */
+        .word-cloud-heading {
+            text-align: center;
+            flex: 1;
+        }
+
+        /* CSS for the chart and word cloud containers */
+        .chart-container, .word-cloud-container {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-container svg, .word-cloud-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <!-- Include D3.js library -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <!-- Include D3-cloud library for word cloud -->
+    <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="main-heading">
+            <h1>Sentiment Dashboard</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#">Dashboard</a>
+            <a href="#">Analysis</a>
+            <a href="#">Settings</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="input-container">
+            <label for="senderEmail">Sender Email:</label>
+            <input type="text" id="senderEmail">
+            <label for="receiverEmail">Receiver Email:</label>
+            <input type="text" id="receiverEmail">
+            <button onclick="generateChart()">Generate Chart</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="chart-container">
+            <h2 class="chart-heading">Pie Chart</h2>
+            <div id="emotionPieChart" class="pie-chart"></div>
+        </div>
+
+        <div class="word-cloud-container">
+            <h2 class="word-cloud-heading">Word Cloud</h2>
+            <div id="wordCloud" class="word-cloud"></div>
+        </div>
+    </div>
+
+
+    <script>
+        // Sample data
+        var data = {{ data | tojson | safe }};
+        // const data = [{
+        //     "sender": "kay.mann@enron.com",
+        //     "receiverList_results": [{
+        //         "receiver": "suzanne.adams@enron.com",
+        //         "conversation_result": {
+        //             "emotions": {
+        //                 "fear": 0.0446326158828689,
+        //                 "anger": 0.029350246272181364,
+
+        //             },
+        //             "emotion_words": {
+        //                 "fear": [
+        //                     ["lawyer", 112],
+        //                     ["crazy", 1000],
+        //                     ["bad", 601],
+        //                     ["afraid", 500],
+        //                     ["worse", 6]
+        //                 ],
+        //                 "anger":[ ["he", 112],
+        //                     ["byy", 20],
+        //                     ["shy", 51],
+        //                     ["god", 200],
+        //                     ["worse", 6]]
+        //             }
+        //         }
+        //     }]
+        // }];
+
+        function generateChart() {
+            // Get user input
+            const senderEmail = document.getElementById("senderEmail").value;
+            const receiverEmail = document.getElementById("receiverEmail").value;
+
+            // Find data for the specified sender and receiver
+            const conversationData = data.find(item => item.sender === senderEmail && item.receiverList_results.some(receiver => receiver.receiver === receiverEmail));
+
+            if (!conversationData) {
+                alert("Sender and/or receiver not found in the dataset.");
+                return;
+            }
+
+            // Extract emotions and emotion words
+            const emotions = conversationData.receiverList_results[0].conversation_result.emotions;
+            const emotionWords = conversationData.receiverList_results[0].conversation_result.emotion_words;
+
+            // Create a single pie chart
+            createPieChart("emotionPieChart", "Emotions", emotions,emotionWords);
+
+            // Display the word cloud
+            //createWordCloud("wordCloud", emotionWords.fear);
+        }
+
+        function createPieChart(containerId, title, data, emotionWords) {
+    // Clear previous chart
+    document.getElementById(containerId).innerHTML = "";
+
+    // Define pie chart dimensions
+    const width = 300;
+    const height = 300;
+    const radius = Math.min(width, height) / 2;
+
+    // Create SVG element
+    const svg = d3.select(`#${containerId}`)
+        .append("svg")
+        .attr("width", width+100)
+        .attr("height", height+100)
+        .append("g")
+        .attr("transform", `translate(${width / 2},${height / 2})`);
+
+    // Define color scale
+    const color = d3.scaleOrdinal(d3.schemeCategory10);
+
+    // Define pie layout
+    const pie = d3.pie()
+        .sort(null)
+        .value(d => d.value);
+
+    // Generate pie chart data
+    const pieData = pie(Object.entries(data).map(([emotion, value]) => ({ emotion, value })));
+
+    // Define arc generator
+    const arc = d3.arc()
+        .innerRadius(0)
+        .outerRadius(radius);
+
+    // Create groups for each slice
+    const arcs = svg.selectAll(".arc")
+        .data(pieData)
+        .enter()
+        .append("g")
+        .attr("class", "arc");
+
+    // Add slices to the chart
+    const tooltip = d3.select(`#${containerId}`)
+        .append("div")
+        .style("position", "absolute")
+        .style("background-color", "rgba(0, 0, 0, 0.7)")
+        .style("color", "white")
+        .style("padding", "8px")
+        .style("border-radius", "4px")
+        .style("opacity", 0);
+
+    // Add slices to the chart
+    arcs.append("path")
+        .attr("d", arc)
+        .attr("fill", (d, i) => color(i))
+        .on("mouseover", function (event, d) {
+            // Show tooltip on mouseover
+            tooltip.transition()
+                .duration(200)
+                .style("opacity", 1);
+            tooltip.html(`${d.data.emotion}<br>${(d.data.value * 100).toFixed(1)}%`)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 10) + "px");
+            
+            // Zoom in on the slice when hovering
+            d3.select(this)
+                .transition()
+                .duration(200)
+                .attr("d", d3.arc().innerRadius(0).outerRadius(radius * 1.1));
+        })
+        .on("mouseout", function (event, d) {
+            // Hide tooltip on mouseout
+            tooltip.transition()
+                .duration(200)
+                .style("opacity", 0);
+            
+            // Zoom out when the mouse moves out
+            d3.select(this)
+                .transition()
+                .duration(200)
+                .attr("d", arc);
+        })
+        .on("click", function (event, d) {
+            // Display the emotion name in the console when clicked
+            console.log(`Emotion: ${d.data.emotion}`);
+            createWordCloud("wordCloud", emotionWords[d.data.emotion],d.data.emotion);
+        });
+
+
+    // Add labels with percentages
+    arcs.append("text")
+        .attr("transform", d => `translate(${arc.centroid(d)})`)
+        .attr("text-anchor", "middle")
+        .text(d => ` (${(d.data.value * 100).toFixed(1)}%)`);
+}
+
+
+
+function createWordCloud(containerId, words,emotion) {
+    document.getElementById(containerId).innerHTML = "";
+
+    // Define word cloud dimensions
+    const width = 600;
+    const height = 600;
+
+    // Create SVG element
+    const svg = d3.select(`#${containerId}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    // Sort the words by frequency and select the top 30
+    const topWords = words
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 30);
+
+    // Determine the maximum frequency for scaling
+    const maxFrequency = d3.max(topWords, d => d[1]);
+
+    // Create a linear scale for font size
+    const fontSizeScale = d3.scaleLinear()
+        .domain([0, maxFrequency])
+        .range([10, 90]); // Adjust the range as needed for font size scaling
+
+    // Create word cloud layout
+    const layout = d3.layout.cloud()
+        .size([width, height])
+        .words(topWords.map(([word, frequency]) => ({
+            text: word,
+            size: fontSizeScale(frequency) // Scale font size based on frequency
+        })))
+        .padding(5)
+        .rotate(() => (Math.random() - 0.5) * 30)
+        .font("Impact")
+        .fontSize(d => d.size)
+        .on("end", drawWordCloud);
+
+    // Generate word cloud
+    layout.start();
+
+    function drawWordCloud(words) {
+        console.log(emotion)
+    const wordElements = svg.append("g")
+        .attr("transform", `translate(${width / 2},${height / 2})`)
+        .selectAll("text")
+        .data(words)
+        .enter()
+        .append("text")
+        .style("font-size", d => `${d.size}px`)
+        .style("fill", "blue")
+        .attr("text-anchor", "middle")
+        .style("transform", d => `translate(${d.x}px,${d.y}px)rotate(${d.rotate}deg)`)
+        .text(d => d.text)
+        .on("mouseover", function (event, d) {
+            // Scale and style the hovered word
+            d3.select(this)
+                .transition()
+                .duration(200)
+                .style("font-size", `${d.size * 1.2}px`)
+                .style("fill", "red");
+
+            // Create and show the tooltip above the word
+            const tooltip = d3.select(`#${containerId}`)
+                .append("div")
+                .attr("class", "tooltip")
+                .style("position", "absolute")
+                .style("background-color", "rgba(0, 0, 0, 0.7)")
+                .style("color", "white")
+                .style("padding", "8px")
+                .style("border-radius", "4px")
+                .style("opacity", 0.9)
+                .html(`${emotion}: ${d.size}`);
+
+            // Position the tooltip above the word
+            const tooltipWidth = tooltip.node().offsetWidth;
+            tooltip.style("left", `${event.pageX - tooltipWidth / 2}px`)
+                .style("top", `${event.pageY - 40}px`);
+        })
+        .on("mouseout", function (event, d) {
+            // Restore the word to its original size and style
+            d3.select(this)
+                .transition()
+                .duration(200)
+                .style("font-size", `${d.size}px`)
+                .style("fill", "blue");
+
+            // Remove the tooltip
+            d3.select(".tooltip").remove();
+        });
+}
+
+
+
+}
+
+    </script>
+</body>
+</html>
